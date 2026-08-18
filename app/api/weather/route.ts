@@ -1,6 +1,7 @@
 import { get } from "@vercel/blob";
 
 export const runtime="nodejs";
+export const dynamic="force-dynamic";
 export const revalidate=3600;
 const SUMMARY_BLOB="crop-intelligence/latest-global-forecast.json";
 

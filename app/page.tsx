@@ -37,7 +37,7 @@ export default function Home(){
  const mapFeatures=scope==="adm1"&&subregions.length?subregions:countries;
  const localProjection=useMemo(()=>geoNaturalEarth1().fitExtent([[12,12],[928,490]],{type:"FeatureCollection",features:mapFeatures} as any),[mapFeatures]);
  const localPath=useMemo(()=>geoPath(localProjection),[localProjection]);
- const scoreFor=(id:number)=>liveRisk(forecast?.countries[meta[id]?.iso3]?.days[String(Math.min(day,16))],id,day,layer,crop);
+ const scoreFor=(id:number)=>liveRisk(forecast?.countries[meta[id]?.iso3]?.days[String(day)],id,day,layer,crop);
  const score=scoreFor(selected), source=day<=14?(day===4||day===8||day===11?"MODEL-FILLED":"PROVIDER + ERA5 CALIBRATED"):"MODEL EXTENSION";
  const selectedName=names[selected]||"Selected region";
  const ranked=useMemo(()=>{const best=new Map<string,{id:number,name:string,risk:number}>();for(const c of countries){const id=Number(c.id),m=meta[id];if(!m)continue;const row={id,name:m.name,risk:scoreFor(id)},old=best.get(m.continent);if(!old||row.risk>old.risk)best.set(m.continent,row)}return [...best.values()].sort((a,b)=>b.risk-a.risk)},[day,layer,crop,meta,forecast]);
