@@ -187,10 +187,6 @@ This archive provides forecast–truth pairs for later bias correction and retra
 - Open-Meteo provides a simple forecast endpoint for the deployed ingestion demonstration without placing an API key in client code.
 - Forecast fetching still occurs server-side so provider responses can be archived consistently and replaced by another provider later.
 
-## Security
-
-API credentials, Vercel Blob tokens, cron secrets, environment files, and personal information are excluded from the repository. Deployment secrets are stored only as protected Vercel environment variables.
-
 ## Current status
 
 This repository is a working public demo, not an operational agricultural warning service. The interface includes illustrative risk visualization, while the daily ingestion and private DuckDB archive are live. Global ADM1 forecast ingestion, provider hindcast calibration, and production monitoring remain required before operational use.
