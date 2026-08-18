@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "FieldCast — 28-day crop weather outlook",
+  title: "Crop Intelligence Dashboard",
   description: "Calibrated weather intelligence for crop-growing regions.",
   icons: {
     icon: "/favicon.svg",
